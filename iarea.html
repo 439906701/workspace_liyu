@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+	<script>
+		function initArray(startYear, startMonth, startDay,count) {
+			function checkM(arg3,arg4){
+				var arg1 = arg3+startYear;
+				var arg2 = arg4+1;
+				if(arg2 ==1||arg2 ==3||arg2 ==5||arg2 ==7||arg2 ==8||arg2 ==10||arg2 ==12){
+					return 31;
+				}else if(arg==2){
+					if(arg1/4==0 && arg1/100!=0){
+						return 29;
+					}else{
+						return 28;
+					}
+				}else{
+					return 30;
+				}
+			}
+			var yearArray =new Array();
+			for(var k = 0; k < count; k++) {
+				var yearObj = new Object();
+				var monthArray = new Array();
+				for(var j = 0; j < 12; j++) {
+					var monthObj = new Object();
+					var dayArray = new Array();
+					 var  iLength = checkM(k,j);
+					for(var i = 0; i < iLength; i++) {
+						var dayObj = new Object();
+						dayObj.id = i;
+						dayObj.name = i;
+						dayArray[i] = dayObj;
+					}
+					monthObj.id = j;
+					monthObj.name = j;
+					monthObj.child = dayArray;
+					monthArray[j] = monthObj;
+				}
+				yearObj.id=k;
+				yearObj.name=2016+k;
+				yearObj.child=monthArray;
+				yearArray[k]=yearObj;
+			}
+			return yearArray;
+		}
+
+		var data = initArray(2011, 1, 2,10);
+		document.querySelector("body").innerHTML = JSON.stringify(data);
+	</script>
+
+</html>

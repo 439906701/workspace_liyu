@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.part {
+			font-size: 34px;
+			padding-top: 10px;
+			border-left: 1px solid #0000FF;
+			border-bottom: 2px solid #0000FF;
+			float: left;
+		}
+		
+		.con {
+			margin: 20px;
+			max-width: 300px;
+			word-break: break-all;
+			text-align: center;
+		}
+		
+		.left {
+			border: 1px #0000FF solid;
+			background-color: #ffffff;
+			width: 15px;
+			height: 15px;
+			border-radius: 100%;
+			-webkit-transform: translate(-50%, 50%);
+			float: left;
+		}
+		
+		.left div {
+			width: 9px;
+			height: 9px;
+			border-radius: 100%;
+			background-color: #0000FF;
+			margin: 3px;
+		}
+		
+		.right {
+			width: 17px;
+			height: 17px;
+			border-radius: 100%;
+			-webkit-transform: translate(50%, 50%);
+			float: right;
+		}
+		
+		.right div {
+			width: 9px;
+			height: 9px;
+			border-radius: 100%;
+			background-color: #0000FF;
+			margin: 4px;
+		}
+		
+		.placeLine {
+			float: none;
+		}
+		
+		.str {
+			width: 200px;
+			height: 100px;
+		}
+	</style>
+	<script src="js/zepto.js"></script>
+	<body id="body"></body>
+	<script>
+		var str = "2011.2.3dadada;dadasd;assssssssssssssssssssssssssssssssssssssss;a"
+		var data = str.split(";");
+		$.each(data, function(i) {
+			$("#body").append('<div class="part part' + i + '">' +
+				'<div class="con">' + data[i] + '</div>' +
+				'<div class="left">' +
+				'<div></div>' +
+				'</div>' +
+				'<div class="right">' +
+				'<div></div>' +
+				'</div>' +
+				'</div>' +
+				'<div class="placeLine place' + i + '"></div>');
+		})
+
+		var parts = document.querySelectorAll(".part");
+		var placeLines = document.querySelectorAll(".placeLine");
+		$.each(parts, function(i) {
+			placeLines[i].style.height = parts[i].offsetHeight + "px";
+		});
+	</script>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+	</body>
+	<script>
+	if(window.location.href.indexOf("wap/detail/")!=-1){
+			var ipid = window.location.href.split("wap/detail/")[1];
+			window.location.href=contextPath+"pc/pages/index/detail.html?id="+ipid;
+	}
+	if(window.location.href.indexOf("wap/index")!=-1){
+			window.location.href=contextPath+"pc/pages/index/main.html";
+	}
+	
+	
+		var targetObj = {
+			a: {
+				b: {
+					c: {
+						d: {
+							e: {
+								name: '百度'
+							}
+						}
+					}
+				},
+				d: '90',
+				e: '90'
+			},
+			a2: {
+				name: '腾讯'
+			}
+		}
+		
+		
+		
+		function test(targetObj){
+			var i=0;
+			while(1){
+				console.log(i);
+				if(targetObj.length>0){
+					
+				}
+				
+				
+				
+				i++;
+			}
+		}
+		test(targetObj);
+	</script>
+
+</html>
